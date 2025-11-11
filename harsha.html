@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harsha Vardhan Gummadi • Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            primary: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81'
+            }
+          },
+          boxShadow: {
+            soft: '0 10px 30px rgba(2, 6, 23, 0.12)',
+            glow: '0 10px 40px rgba(99, 102, 241, .35)'
+          },
+          backgroundImage: {
+            'hero': 'radial-gradient(1200px 600px at 100% -20%, rgba(99,102,241,.20), rgba(99,102,241,0)), radial-gradient(1000px 500px at -10% 110%, rgba(56,189,248,.18), rgba(56,189,248,0))'
+          }
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans selection:bg-primary-400/30">
+  <!-- App Wrapper -->
+  <div id="app" class="min-h-screen">
+
+    <!-- Decorative gradient -->
+    <div class="fixed inset-0 -z-10 bg-hero"></div>
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-slate-950/60 border-b border-white/10">
+      <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="#" class="group inline-flex items-center gap-3">
+          <!-- Initials Logo -->
+          <span class="relative inline-grid place-items-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-cyan-400 text-white font-bold shadow-glow">
+            HVG
+          </span>
+          <span class="font-semibold tracking-tight text-slate-100 group-hover:text-white transition-colors">
+            Harsha Vardhan Gummadi
+          </span>
+        </a>
+
+        <button id="mobileMenuBtn" aria-label="Open menu" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/10 hover:bg-white/5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+            <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+
+        <div id="navLinks" class="hidden md:flex items-center gap-2">
+          <a href="#about" class="px-3 py-2 rounded-lg hover:bg-white/5">About</a>
+          <a href="#skills" class="px-3 py-2 rounded-lg hover:bg-white/5">Skills</a>
+          <a href="#projects" class="px-3 py-2 rounded-lg hover:bg-white/5">Projects</a>
+          <a href="#profiles" class="px-3 py-2 rounded-lg hover:bg-white/5">Profiles</a>
+          <a href="#contact" class="px-3 py-2 rounded-lg hover:bg-white/5">Contact</a>
+          <button id="themeToggle" class="ml-2 inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 hover:bg-white/5">
+            <span class="sr-only">Toggle theme</span>
+            <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M6.76 4.84l-1.8-1.79L3.17 4.84l1.79 1.8 1.8-1.8zM1 13h3v-2H1v2zm10-9h2V1h-2v3zm7.03 1.21l-1.8 1.8 1.8 1.79 1.79-1.79-1.79-1.8zM17 13h6v-2h-6v2zM12 19a7 7 0 100-14 7 7 0 000 14zm0 5h2v-3h-2v3zM4.22 18.36l1.8-1.8-1.8-1.79-1.79 1.79 1.79 1.8zM20.83 19.16l-1.79-1.8-1.8 1.8 1.8 1.79 1.79-1.79z"/></svg>
+            <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile sheet -->
+      <div id="mobileSheet" class="md:hidden hidden border-t border-white/10">
+        <div class="px-6 py-3 grid gap-1">
+          <a href="#about" class="px-3 py-2 rounded-lg hover:bg-white/5">About</a>
+          <a href="#skills" class="px-3 py-2 rounded-lg hover:bg-white/5">Skills</a>
+          <a href="#projects" class="px-3 py-2 rounded-lg hover:bg-white/5">Projects</a>
+          <a href="#profiles" class="px-3 py-2 rounded-lg hover:bg-white/5">Profiles</a>
+          <a href="#contact" class="px-3 py-2 rounded-lg hover:bg-white/5">Contact</a>
+          <button id="themeToggleMobile" class="mt-2 inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 hover:bg-white/5 w-max">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+            Theme
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="max-w-7xl mx-auto px-6 pt-16 pb-12 md:pt-24 md:pb-20">
+      <div class="grid md:grid-cols-[1.2fr_.8fr] items-center gap-10">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-sm text-slate-200">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            Open to opportunities
+          </div>
+
+          <h1 class="mt-5 text-4xl md:text-6xl font-extrabold leading-[1.1] tracking-tight">
+            Hi, I’m <span class="bg-gradient-to-r from-primary-400 to-cyan-300 bg-clip-text text-transparent">Harsha Vardhan Gummadi</span>
+          </h1>
+          <p class="mt-4 text-slate-300 md:text-lg">
+            I craft reliable web experiences and love solving complex problems with simple, elegant solutions. Strong in data structures, algorithms, and modern frontend.
+          </p>
+
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a href="https://www.linkedin.com/in/harsha-vardhan-gummadi" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary-600 hover:bg-primary-500 text-white shadow-glow">
+              <!-- LinkedIn Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.8-2.2 4 0 4.7 2.6 4.7 6V24h-4v-7.1c0-1.7 0-3.9-2.4-3.9-2.4 0-2.7 1.9-2.7 3.8V24h-4V8z"/></svg>
+              View LinkedIn
+            </a>
+            <a href="#profiles" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-white/10 hover:border-white/20 hover:bg-white/5">
+              Explore Coding Profiles
+            </a>
+          </div>
+
+          <!-- Quick facts -->
+          <div class="mt-8 grid sm:grid-cols-3 gap-4">
+            <div class="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+              <p class="text-xs text-slate-400">Role</p>
+              <p class="font-semibold mt-1">Software Developer</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+              <p class="text-xs text-slate-400">Focus</p>
+              <p class="font-semibold mt-1">Frontend • DSA</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+              <p class="text-xs text-slate-400">Location</p>
+              <p class="font-semibold mt-1">India (Remote-friendly)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portrait / Decorative card -->
+        <div class="relative">
+          <div class="p-1 rounded-2xl bg-gradient-to-br from-primary-500/60 via-cyan-400/50 to-emerald-400/60">
+            <div class="rounded-2xl bg-slate-900/90 p-8 h-full">
+              <div class="aspect-square rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 grid place-items-center shadow-soft">
+                <!-- Simple SVG Avatar -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" class="w-40 h-40">
+                  <defs>
+                    <linearGradient id="g" x1="0" x2="1">
+                      <stop offset="0" stop-color="#6366f1"/>
+                      <stop offset="1" stop-color="#22d3ee"/>
+                    </linearGradient>
+                  </defs>
+                  <circle cx="60" cy="60" r="58" fill="url(#g)" opacity=".25" />
+                  <circle cx="60" cy="48" r="22" fill="url(#g)" />
+                  <rect x="26" y="74" width="68" height="34" rx="17" fill="url(#g)" />
+                  <text x="60" y="58" text-anchor="middle" font-family="Inter, Arial" font-size="18" fill="white" opacity=".9">HVG</text>
+                </svg>
+              </div>
+              <p class="mt-6 text-sm text-slate-300">“Code that feels fast, looks great, and solves real problems.”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid md:grid-cols-2 gap-10">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">About Me</h2>
+          <p class="mt-4 text-slate-300 leading-relaxed">
+            I’m a curious and detail‑oriented developer who enjoys turning ideas into polished, user‑friendly products.
+            I work primarily with modern web technologies and keep my fundamentals sharp with regular problem solving.
+            When I’m not coding, I’m usually reading about system design, practicing DSA, and sketching UI ideas.
+          </p>
+
+          <div class="mt-6 grid sm:grid-cols-2 gap-4">
+            <div class="rounded-xl border border-white/10 bg-white/5 p-4">
+              <p class="text-xs text-slate-400">Strengths</p>
+              <p class="mt-2 font-medium">Clean UI, performance, clear logic</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/5 p-4">
+              <p class="text-xs text-slate-400">Communication</p>
+              <p class="mt-2 font-medium">Team player, proactive, dependable</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold">Quick Snapshot</h3>
+          <ul class="mt-4 grid gap-3">
+            <li class="flex items-start gap-3">
+              <span class="mt-1 inline-block w-2 h-2 rounded-full bg-primary-400"></span>
+              <div>
+                <p class="font-medium">Education</p>
+                <p class="text-slate-300">B.Tech in Computer Science (update with your college and year)</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 inline-block w-2 h-2 rounded-full bg-primary-400"></span>
+              <div>
+                <p class="font-medium">Interests</p>
+                <p class="text-slate-300">Web apps, problem solving, UI design, open source</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 inline-block w-2 h-2 rounded-full bg-primary-400"></span>
+              <div>
+                <p class="font-medium">Currently</p>
+                <p class="text-slate-300">Practicing algorithms and building side projects</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="max-w-7xl mx-auto px-6 py-16">
+      <h2 class="text-2xl md:text-3xl font-bold">Skills</h2>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <span class="px-3 py-1.5 rounded-full border border-white/10 bg-white/5">HTML5</span>
+        <span class="px-3 py-1.5 rounded-full border border-white/10 bg-white/5">CSS3</span>
+        <span class="px-3 py-1.5 rounded-full border border-white/10 bg-white/5">JavaScript (ES6+)</span>
+        <span class="px-3 py-1.5 rounded-full border border-white/10 bg-white/5">Tailwind CSS</span>
+        <span class="px-3 py-1.5 rounded-full border border-white/10 bg-white/5">React</span>
+        <span class="px-3 py-1.5 rounded-full border border-white/10 bg-white/5">Node.js</span>
+        <span class="px-3 py-1.5 rounded-full border border-white/10 bg-white/5">Git • GitHub</span>
+        <span class="px-3 py-1.5 rounded-full border border-white/10 bg-white/5">DSA • Problem Solving</span>
+      </div>
+    </section>
+
+    <!-- Projects (sample) -->
+    <section id="projects" class="max-w-7xl mx-auto px-6 py-16">
+      <div class="flex items-end justify-between gap-6">
+        <h2 class="text-2xl md:text-3xl font-bold">Projects</h2>
+        <button id="addProjectHelp" class="text-sm px-3 py-1.5 rounded-lg border border-white/10 hover:bg-white/5">How to add yours</button>
+      </div>
+
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project Card 1 -->
+        <article class="rounded-2xl border border-white/10 bg-white/5 overflow-hidden flex flex-col">
+          <div class="aspect-video bg-gradient-to-br from-primary-500/25 to-cyan-400/25 grid place-items-center">
+            <!-- Placeholder SVG banner -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-primary-300" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 5a2 2 0 0 1 2-2h3v2H5v14h3v2H5a2 2 0 0 1-2-2V5zm16-2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3v-2h3V5h-3V3h3z"/>
+              <path d="M8 12l4-4 4 4-4 4-4-4z"/>
+            </svg>
+          </div>
+          <div class="p-5 flex-1 flex flex-col">
+            <h3 class="font-semibold">AlgoViz — Sorting Visualizer</h3>
+            <p class="mt-2 text-sm text-slate-300 flex-1">
+              Interactive visualizer for classic sorting algorithms with adjustable speed and array size.
+            </p>
+            <div class="mt-4 flex items-center gap-2">
+              <button data-modal="modal1" class="openModal inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-primary-600 hover:bg-primary-500 text-white">
+                View Demo
+              </button>
+              <a href="#" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 hover:bg-white/5">
+                View Code
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card 2 -->
+        <article class="rounded-2xl border border-white/10 bg-white/5 overflow-hidden flex flex-col">
+          <div class="aspect-video bg-gradient-to-br from-emerald-400/25 to-cyan-400/25 grid place-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-emerald-300" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M4 4h16v4H4zM4 10h10v10H4zM16 10h4v10h-4z"/>
+            </svg>
+          </div>
+          <div class="p-5 flex-1 flex flex-col">
+            <h3 class="font-semibold">TaskFlow — Kanban Board</h3>
+            <p class="mt-2 text-sm text-slate-300 flex-1">
+              A simple drag‑and‑drop task board with persistent storage for daily planning.
+            </p>
+            <div class="mt-4 flex items-center gap-2">
+              <button data-modal="modal2" class="openModal inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-primary-600 hover:bg-primary-500 text-white">
+                View Demo
+              </button>
+              <a href="#" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 hover:bg-white/5">
+                View Code
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card 3 (placeholder) -->
+        <article class="rounded-2xl border border-white/10 bg-white/5 overflow-hidden flex flex-col">
+          <div class="aspect-video bg-gradient-to-br from-fuchsia-400/25 to-violet-500/25 grid place-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-fuchsia-300" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l4 4H8l4-4zM4 8h16v12H4z"/>
+            </svg>
+          </div>
+          <div class="p-5 flex-1 flex flex-col">
+            <h3 class="font-semibold">Your Next Project</h3>
+            <p class="mt-2 text-sm text-slate-300 flex-1">
+              Replace this card with one of your projects. Add a short one‑liner describing impact.
+            </p>
+            <div class="mt-4 flex items-center gap-2">
+              <button class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-primary-600 hover:bg-primary-500 text-white" disabled>
+                Coming Soon
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Coding Profiles -->
+    <section id="profiles" class="max-w-7xl mx-auto px-6 py-16">
+      <h2 class="text-2xl md:text-3xl font-bold">Coding Profiles</h2>
+      <p class="mt-2 text-slate-300">Find my practice and competitive coding activity here.</p>
+
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/harsha-vardhan-gummadi" target="_blank" rel="noopener" class="group rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition-colors">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl grid place-items-center bg-[#0A66C2]/20 text-[#0A66C2]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.451 20.451h-3.554v-5.569c0-1.328-.026-3.036-1.851-3.036-1.853 0-2.136 1.447-2.136 2.943v5.662H9.356V9h3.413v1.561h.048c.476-.9 1.637-1.851 3.369-1.851 3.602 0 4.268 2.371 4.268 5.455v6.286zM5.337 7.433a2.063 2.063 0 11.001-4.126 2.063 2.063 0 01-.001 4.126zM7.116 20.451H3.559V9h3.557v11.451z"/></svg>
+            </div>
+            <div>
+              <p class="font-semibold">LinkedIn</p>
+              <p class="text-sm text-slate-300 group-hover:text-slate-200">Professional profile</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- LeetCode -->
+        <a href="https://leetcode.com/u/harshav1027/" target="_blank" rel="noopener" class="group rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition-colors">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl grid place-items-center bg-amber-400/20 text-amber-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M15.5 3.5l-7.8 7.8 7.8 7.8-1.4 1.4L5.9 12.7 14.1 4.5l1.4-1z"/><path d="M10 11h9v2h-9z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold">LeetCode</p>
+              <p class="text-sm text-slate-300 group-hover:text-slate-200">harshav1027</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- CodeChef -->
+        <a href="https://www.codechef.com/users/harsha_6121" target="_blank" rel="noopener" class="group rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition-colors">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl grid place-items-center bg-rose-400/20 text-rose-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 2h10l1 5H6l1-5zm13 7H4l1 12h14l1-12zM8 13h2v6H8v-6zm6 0h2v6h-2v-6z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold">CodeChef</p>
+              <p class="text-sm text-slate-300 group-hover:text-slate-200">harsha_6121</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="max-w-7xl mx-auto px-6 py-16">
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10">
+        <h2 class="text-2xl md:text-3xl font-bold">Let’s Connect</h2>
+        <p class="mt-2 text-slate-300">I’m open to collaborations, roles, and interesting problems.</p>
+
+        <div class="mt-6 grid sm:grid-cols-[1fr_auto_auto] gap-3 items-center">
+          <div class="rounded-xl border border-white/10 bg-slate-900/60 px-4 py-3 flex items-center justify-between">
+            <span class="text-slate-300 truncate" id="emailText">harshav1027@gmail.com</span>
+            <button id="copyEmail" class="ml-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/10 hover:bg-white/5">
+              Copy
+            </button>
+          </div>
+          <a id="mailtoBtn" href="mailto:harshav1027@gmail.com" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-primary-600 hover:bg-primary-500 text-white">
+            Email Me
+          </a>
+          <a href="https://www.linkedin.com/in/harsha-vardhan-gummadi" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-white/10 hover:bg-white/5">
+            LinkedIn
+          </a>
+        </div>
+        <p class="mt-3 text-xs text-slate-400">Tip: Replace the email above with your real one.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pb-10">
+      <div class="max-w-7xl mx-auto px-6 pt-6 border-t border-white/10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <p class="text-slate-400 text-sm">
+            © <span id="year"></span> Harsha Vardhan Gummadi. All rights reserved.
+          </p>
+          <div class="flex items-center gap-2 text-sm text-slate-400">
+            <a href="#about" class="px-3 py-1.5 rounded-lg hover:bg-white/5">About</a>
+            <a href="#projects" class="px-3 py-1.5 rounded-lg hover:bg-white/5">Projects</a>
+            <a href="#profiles" class="px-3 py-1.5 rounded-lg hover:bg-white/5">Profiles</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modals -->
+  <div id="modal1" class="modal fixed inset-0 z-[60] hidden">
+    <div class="absolute inset-0 bg-slate-950/70"></div>
+    <div class="relative max-w-2xl mx-auto mt-24 rounded-2xl border border-white/10 bg-slate-900 p-6 shadow-soft">
+      <div class="flex items-center justify-between gap-4">
+        <h3 class="text-lg font-semibold">AlgoViz — Sorting Visualizer</h3>
+        <button class="closeModal inline-flex w-9 h-9 items-center justify-center rounded-lg border border-white/10 hover:bg-white/5" aria-label="Close">
+          ✕
+        </button>
+      </div>
+      <p class="mt-3 text-slate-300">
+        Preview how the visualizer would work. This is a demo modal. Replace with your live link when ready.
+      </p>
+      <div class="mt-5 rounded-xl border border-white/10 bg-white/5 p-4">
+        <div class="flex items-center gap-3 text-sm text-slate-300">
+          <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-primary-600 text-white">1</span>
+          Generate random array
+        </div>
+        <div class="mt-2 flex items-center gap-3 text-sm text-slate-300">
+          <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-primary-600 text-white">2</span>
+          Choose algorithm and speed
+        </div>
+        <div class="mt-2 flex items-center gap-3 text-sm text-slate-300">
+          <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-primary-600 text-white">3</span>
+          Watch it sort in real time
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal2" class="modal fixed inset-0 z-[60] hidden">
+    <div class="absolute inset-0 bg-slate-950/70"></div>
+    <div class="relative max-w-2xl mx-auto mt-24 rounded-2xl border border-white/10 bg-slate-900 p-6 shadow-soft">
+      <div class="flex items-center justify-between gap-4">
+        <h3 class="text-lg font-semibold">TaskFlow — Kanban Board</h3>
+        <button class="closeModal inline-flex w-9 h-9 items-center justify-center rounded-lg border border-white/10 hover:bg-white/5" aria-label="Close">
+          ✕
+        </button>
+      </div>
+      <p class="mt-3 text-slate-300">
+        A lightweight Kanban board to organize tasks. Swap this demo for your deployed project anytime.
+      </p>
+      <div class="mt-5 grid sm:grid-cols-3 gap-3">
+        <div class="rounded-xl border border-white/10 bg-white/5 p-4">
+          <p class="text-xs text-slate-400">Columns</p>
+          <p class="font-medium mt-1">To‑do, Doing, Done</p>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-white/5 p-4">
+          <p class="text-xs text-slate-400">Drag & Drop</p>
+          <p class="font-medium mt-1">Yes</p>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-white/5 p-4">
+          <p class="text-xs text-slate-400">Storage</p>
+          <p class="font-medium mt-1">Local (persistent)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileSheet = document.getElementById('mobileSheet');
+    mobileBtn.addEventListener('click', () => {
+      mobileSheet.classList.toggle('hidden');
+    });
+    mobileSheet.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileSheet.classList.add('hidden');
+    }));
+
+    // Theme toggle (persists)
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+    const sunIcon = document.getElementById('sunIcon');
+    const moonIcon = document.getElementById('moonIcon');
+
+    function applyTheme(mode) {
+      if (mode === 'light') {
+        root.classList.remove('dark'); // background already dark; we invert palette slightly by toggling a class
+        document.body.classList.remove('bg-slate-950','text-slate-100');
+        document.body.classList.add('bg-white','text-slate-900');
+        sunIcon.classList.add('hidden'); moonIcon.classList.remove('hidden');
+      } else {
+        root.classList.add('dark');
+        document.body.classList.add('bg-slate-950','text-slate-100');
+        document.body.classList.remove('bg-white','text-slate-900');
+        sunIcon.classList.remove('hidden'); moonIcon.classList.add('hidden');
+      }
+    }
+    const saved = localStorage.getItem('themeMode') || 'dark';
+    applyTheme(saved);
+    function toggleTheme() {
+      const current = localStorage.getItem('themeMode') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('themeMode', next);
+      applyTheme(next);
+    }
+    themeToggle.addEventListener('click', toggleTheme);
+    themeToggleMobile.addEventListener('click', toggleTheme);
+
+    // Modals
+    function openModal(id) {
+      const m = document.getElementById(id);
+      m.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(el) {
+      const m = el.closest('.modal');
+      m.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.openModal').forEach(btn => {
+      btn.addEventListener('click', () => openModal(btn.getAttribute('data-modal')));
+    });
+    document.querySelectorAll('.closeModal').forEach(btn => {
+      btn.addEventListener('click', () => closeModal(btn));
+    });
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.classList.add('hidden');
+      });
+    });
+
+    // Copy email
+    const copyBtn = document.getElementById('copyEmail');
+    const emailText = document.getElementById('emailText');
+    const mailtoBtn = document.getElementById('mailtoBtn');
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(emailText.textContent.trim());
+        const prev = copyBtn.textContent;
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => { copyBtn.textContent = prev; }, 1400);
+      } catch (e) {
+        alert('Copy not supported here. Please select and copy manually.');
+      }
+    });
+    // Keep mailto in sync if user edits innerText in the future
+    const observer = new MutationObserver(() => {
+      const email = (emailText.textContent || '').trim();
+      mailtoBtn.href = 'mailto:' + email;
+    });
+    observer.observe(emailText, { characterData: true, subtree: true, childList: true });
+
+    // Helper: How to add projects
+    document.getElementById('addProjectHelp').addEventListener('click', () => {
+      alert('To add your own projects:\n\n1) Replace a card title and description.\n2) Link "View Code" to your repository.\n3) Swap the demo modal with your live URL or an embedded preview.\n\nNeed help? Tell Canva Code the details and I’ll wire it up!');
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9805cd8035e08031',t:'MTc1ODA4MjczOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
